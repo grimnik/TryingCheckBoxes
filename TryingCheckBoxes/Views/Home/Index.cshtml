@@ -1,0 +1,26 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div class="jumbotron">
+    <form asp-action="Index" method="get" enctype="multipart/form-data">
+        @for (int i = 0; i < Model.Filters.Count; i++)
+        {
+            //Bouth label and input need Selected
+            <div class="form-check-inline">
+                <label class="form-check-label" asp-for="@Model.Filters[i].Selected">
+                    <input type="checkbox" class="form-check-input"  asp-for="@Model.Filters[i].Selected">@Model.Filters[i].Name
+                </label>
+            @*Hidden Values add Id and others here*@
+                    <input hidden asp-for="@Model.Filters[i].Name" />
+                    
+            </div>
+        }
+        <input class="btn btn-dark text-danger" type="submit" />
+    </form>
+</div>
