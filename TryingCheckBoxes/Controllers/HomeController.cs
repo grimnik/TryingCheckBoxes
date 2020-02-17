@@ -20,18 +20,13 @@ namespace TryingCheckBoxes.Controllers
 
         public IActionResult Index(IndexViewModel incoming)
         {
-           
             IndexViewModel model = new IndexViewModel();
-            List<string> filters = new List<string>();
             model.Filters = new List<Filter>();
+            List<string> filters = new List<string>();
             for (int i = 0; i < 10; i++)
             {
-                filters.Add("Option" + i);
-                model.Filters.Add(new Filter());
-            }
-            for (int i = 0; i < filters.Count; i++)
-            {
-                model.Filters[i].Name = filters[i];
+                filters.Add("Option" + (i + 1));
+                model.Filters.Add(new Filter() {Name = filters[i] });
             }
           return  View(model);
         }
