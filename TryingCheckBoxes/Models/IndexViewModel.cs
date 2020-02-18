@@ -7,8 +7,8 @@ namespace TryingCheckBoxes.Models
 {
     public class IndexViewModel
     {
-        
-        public List<Filter> Filters { get; set; }
+
+        public List<Filter> Filters { get; set; } = new List<Filter>();
     }
     public class Filter
     {
